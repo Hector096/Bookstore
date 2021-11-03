@@ -1,19 +1,17 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Books from './Books';
+import BookContainer from './BookContainer';
 import Categories from './Categories';
 import Header from './Header';
-import Footer from './Footer';
 
 function App() {
   return (
-    <div>
+    <div className="bg-light app-container">
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/" component={Books} />
+          <Route exact path="/" component={BookContainer} />
           <Route exact path="/categories" component={Categories} />
         </Switch>
-        <Footer />
       </Router>
     </div>
   );

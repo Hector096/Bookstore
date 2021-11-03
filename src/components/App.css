@@ -1,15 +1,19 @@
+.app-container {
+  height: 100vh;
+}
+
 .link {
   text-decoration: none;
   color: gray;
 }
 
 .link-active {
-  color: whitesmoke;
+  color: black;
   text-decoration: none;
 }
 
 .link:hover {
-  color: whitesmoke;
+  color: black;
 }
 
 .footer {
@@ -17,4 +21,9 @@
   bottom: 0;
   display: block;
   width: 100%;
+}
+
+.book-container {
+  max-height: 60vh;
+  overflow-y: scroll;
 }
