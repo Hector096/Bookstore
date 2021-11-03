@@ -1,8 +1,11 @@
 import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { PropTypes } from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/books';
 
 export default function Book(props) {
+  const dispatch = useDispatch();
   const { data } = props;
   return (
     <div>
@@ -12,7 +15,7 @@ export default function Book(props) {
           {' '}
           <h6>{data.author}</h6>
         </Col>
-        <Col className="p-4 m-auto"><Button className="bg-danger border border-0">Remove</Button></Col>
+        <Col className="p-4 m-auto"><Button onClick={() => { dispatch(removeBook(data)); }} className="bg-danger border border-0">Remove</Button></Col>
       </Row>
     </div>
   );
