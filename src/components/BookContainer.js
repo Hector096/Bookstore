@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Col } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import Book from './Book';
+import { addBook } from '../redux/books/books';
 import './App.css';
 
 export default function BookContainer() {
-  const books = [{ title: 'Rich Dad and Poor Dad', id: '2', author: 'Robert' }, { title: 'Zero to One', id: '22', author: 'Robert' }, { title: 'Highly Effective People', id: '3', author: 'Robert' }, { title: 'Highly Effective People', id: '5', author: 'Robert' }];
+  const [value, setValue] = useState({
+    title: '',
+    author: '',
+    genre: '',
+  });
+  const books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+
+  const addNewBook = (e) => {
+    e.preventDefault();
+    dispatch(addBook(value));
+    setValue({ title: '', author: '', genre: '' });
+  };
+  const handleFormInput = (e) => {
+    const inputName = e.target.name;
+    setValue({ ...value, [inputName]: e.target.value });
+  };
 
   return (
     <>
@@ -20,11 +38,10 @@ export default function BookContainer() {
       </div>
       <hr />
       <h2 className="ms-5 m-2 ps-2">Add Book</h2>
-      <Form className="d-lg-flex ms-5">
-        <Col className="m-3"><Form.Control type="text" placeholder="Book title" className="p-3 me-3" /></Col>
-
-        <Col className="m-3"><Form.Control type="text" placeholder="Author" className="p-3 me-3" /></Col>
-        <Col className="m-3"><Form.Control type="text" placeholder="Category" className="p-3 me-3" /></Col>
+      <Form className="d-lg-flex ms-5" onSubmit={addNewBook}>
+        <Col className="m-3"><Form.Control onChange={handleFormInput} value={value.title} type="text" placeholder="Book title" className="p-3 me-3" name="title" required /></Col>
+        <Col className="m-3"><Form.Control onChange={handleFormInput} value={value.author} type="text" placeholder="Author" className="p-3 me-3" name="author" required /></Col>
+        <Col className="m-3"><Form.Control onChange={handleFormInput} value={value.genre} type="text" placeholder="Category" className="p-3 me-3" name="genre" required /></Col>
         <Col className="m-auto">
           <Button variant="primary" type="submit">
             Add book
