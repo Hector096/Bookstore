@@ -1,10 +1,10 @@
 import React from 'react';
 import { Form, Button, Col } from 'react-bootstrap';
-import Books from './Books';
+import Book from './Book';
 import './App.css';
 
 export default function BookContainer() {
-  const books = [{ title: 'Rich Dad and Poor Dad', id: '2' }, { title: 'Zero to One', id: '22' }, { title: 'Highly Effective People', id: '3' }, { title: 'Highly Effective People', id: '5' }];
+  const books = [{ title: 'Rich Dad and Poor Dad', id: '2', author: 'Robert' }, { title: 'Zero to One', id: '22', author: 'Robert' }, { title: 'Highly Effective People', id: '3', author: 'Robert' }, { title: 'Highly Effective People', id: '5', author: 'Robert' }];
 
   return (
     <>
@@ -13,7 +13,7 @@ export default function BookContainer() {
           <h2 className="text-center fw-bold mt-5">No Books Found..</h2>
         ) : (
           books.map((item) => (
-            <Books data={item} key={item.id} />
+            <Book data={item} key={item.id} />
           ))
 
         )}
@@ -23,6 +23,7 @@ export default function BookContainer() {
       <Form className="d-lg-flex ms-5">
         <Col className="m-3"><Form.Control type="text" placeholder="Book title" className="p-3 me-3" /></Col>
 
+        <Col className="m-3"><Form.Control type="text" placeholder="Author" className="p-3 me-3" /></Col>
         <Col className="m-3"><Form.Control type="text" placeholder="Category" className="p-3 me-3" /></Col>
         <Col className="m-auto">
           <Button variant="primary" type="submit">

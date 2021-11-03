@@ -1,4 +1,4 @@
-# Math Magicians
+# BookStore
 
 > Bookstore is a powerful SPA which manage books inventry.
 
