@@ -45,13 +45,20 @@ export default function BookContainer() {
           </div>
           <hr className="container" />
           <div className="container">
-            <h2 className="mt-2 fw-bold">Add Book</h2>
-            <Form className="d-lg-flex mt-4" onSubmit={addNewBook}>
-              <Col className="me-3 col-6"><Form.Control onChange={handleFormInput} value={value.title} type="text" placeholder="Book title" name="title" required /></Col>
-              <Col className="me-3 col-4"><Form.Control onChange={handleFormInput} value={value.category} type="text" placeholder="Category" name="category" required /></Col>
+            <h2 className="mt-2 fw-bold text-secondary fs-4">ADD NEW BOOK</h2>
+            <Form className="d-lg-flex mt-3" onSubmit={addNewBook}>
+              <Col className="me-3 col-6"><Form.Control onChange={handleFormInput} value={value.title} type="text" className="p-2" placeholder="Book title" name="title" required /></Col>
+              <Col className="me-3 col-4">
+                <Form.Select aria-label="Default select example" onChange={handleFormInput} className="p-2" placeholder="Category" type="text" name="category" required>
+                  <option>Category</option>
+                  <option value="Fiction" className="text-secondary">Fiction</option>
+                  <option value="Business" className="text-secondary">Business</option>
+                  <option value="Thriller" className="text-secondary">Thriller</option>
+                </Form.Select>
+              </Col>
               <Col className="m-auto">
-                <Button variant="primary" type="submit" className="ps-5 pe-5">
-                  Add book
+                <Button type="submit" className="px-5 fw-bold text-light rounded-0">
+                  ADD BOOK
                 </Button>
               </Col>
             </Form>
