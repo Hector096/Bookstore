@@ -1,3 +1,7 @@
+body {
+  font-family: Montserrat, sans-serif;
+}
+
 .app-container {
   height: 100vh;
 }
@@ -5,6 +9,15 @@
 .link {
   text-decoration: none;
   color: gray;
+}
+
+.li-button {
+  background-color: transparent;
+  border: none;
+}
+
+.li-button:hover {
+  color: red;
 }
 
 .link-active {
@@ -24,6 +37,14 @@
 }
 
 .book-container {
-  height: 50vh;
+  height: 60vh;
   overflow-y: scroll;
+}
+
+.spinner {
+  position: absolute;
+  margin: auto;
+  right: 50%;
+  bottom: 50%;
+  font-size: 50%;
 }

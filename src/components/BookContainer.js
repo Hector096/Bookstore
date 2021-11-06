@@ -32,28 +32,33 @@ export default function BookContainer() {
   return (
     <>
       {books.loading !== true ? (
-        <div className="book-container">
-          {books === undefined || books.length === 0 ? (
-            <h2 className="text-center fw-bold mt-5">No Books Found..</h2>
-          ) : (
-            books.books.map((item) => (
-              <Book data={item} key={item.id} />
-            ))
+        <>
+          <div className="book-container">
+            {books.books === undefined || books.books.length === 0 ? (
+              <h2 className="text-center fw-bold mt-5">No Books Found..</h2>
+            ) : (
+              books.books.map((item) => (
+                <Book data={item} key={item.id} />
+              ))
 
-          )}
-        </div>
-      ) : (<Spinner animation="grow" className="m-auto" size="lg" />)}
-      <hr />
-      <h2 className="ms-5 m-2 ps-2">Add Book</h2>
-      <Form className="d-lg-flex ms-5" onSubmit={addNewBook}>
-        <Col className="m-3"><Form.Control onChange={handleFormInput} value={value.title} type="text" placeholder="Book title" className="p-3 me-3" name="title" required /></Col>
-        <Col className="m-3"><Form.Control onChange={handleFormInput} value={value.category} type="text" placeholder="Category" className="p-3 me-3" name="category" required /></Col>
-        <Col className="m-auto">
-          <Button variant="primary" type="submit">
-            Add book
-          </Button>
-        </Col>
-      </Form>
+            )}
+          </div>
+          <hr className="container" />
+          <div className="container">
+            <h2 className="mt-2 fw-bold">Add Book</h2>
+            <Form className="d-lg-flex mt-4" onSubmit={addNewBook}>
+              <Col className="me-3 col-6"><Form.Control onChange={handleFormInput} value={value.title} type="text" placeholder="Book title" name="title" required /></Col>
+              <Col className="me-3 col-4"><Form.Control onChange={handleFormInput} value={value.category} type="text" placeholder="Category" name="category" required /></Col>
+              <Col className="m-auto">
+                <Button variant="primary" type="submit" className="ps-5 pe-5">
+                  Add book
+                </Button>
+              </Col>
+            </Form>
+          </div>
+        </>
+      )
+        : (<Spinner animation="grow" className="spinner" size="lg" />)}
     </>
   );
 }
