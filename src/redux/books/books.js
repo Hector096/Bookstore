@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { v4 } from 'uuid';
 
-const ADD_BOOK = 'bookStore/books/ADD_BOOK';
-const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const FETCH_BOOKS_REQUEST = 'bookStore/books/fetch_request';
 const FETCH_BOOKS_SUCCESS = 'bookStore/books/fetch_success';
 const FETCH_BOOKS_FAILURE = 'bookStore/books/fetch_failure';
@@ -94,17 +92,6 @@ const reducer = (state = initialState, action) => {
         loading: false,
         books: [],
       };
-    case ADD_BOOK:
-      return [
-        ...state,
-        {
-          title: action.payload.title,
-          category: action.payload.genre,
-          id: action.payload.id,
-        },
-      ];
-    case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.payload.id);
     default:
       return state;
   }
