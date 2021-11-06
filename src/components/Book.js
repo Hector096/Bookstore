@@ -13,7 +13,7 @@ export default function Book(props) {
         <Col className="p-4 m-auto">
           <h5>{data.title}</h5>
           {' '}
-          <h6>{data.author}</h6>
+          <h6>{data.category}</h6>
         </Col>
         <Col className="p-4 m-auto"><Button onClick={() => { dispatch(removeBook(data)); }} className="bg-danger border border-0">Remove</Button></Col>
       </Row>
@@ -24,6 +24,6 @@ export default function Book(props) {
 Book.propTypes = {
   data: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired,
 };

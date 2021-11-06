@@ -24,6 +24,6 @@
 }
 
 .book-container {
-  max-height: 60vh;
+  height: 50vh;
   overflow-y: scroll;
 }
