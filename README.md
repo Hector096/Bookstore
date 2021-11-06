@@ -3,6 +3,8 @@
 > Bookstore is a powerful SPA which manage books inventry.
 
 ---
+## Screenshots
+![screenshot](./assets/screenshot.png)
 
 ## Built With
 
