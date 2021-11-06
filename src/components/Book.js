@@ -15,7 +15,7 @@ export default function Book(props) {
           <p className="text-secondary">{data.category}</p>
           <h5 className="fw-bold m-0">{data.title}</h5>
           <p className="text-secondary">Robert</p>
-          <ul className="d-flex list-unstyled gap-3">
+          <ul className="d-flex list-unstyled gap-3 m-0">
             <li><button type="button" className="li-button">comments </button></li>
             <li><button type="button" className="li-button" onClick={() => dispatch(removeBook(data))}>remove </button></li>
             <li><button type="button" className="li-button">edit </button></li>
