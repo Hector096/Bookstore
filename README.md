@@ -3,6 +3,8 @@
 > Bookstore is a powerful SPA which manage books inventry.
 
 ---
+## Screenshots
+![screenshot](./assets/screenshot.png)
 
 ## Built With
 
@@ -46,7 +48,7 @@ npm run build
 ## Authors
 :bearded_person: **Hector**
   - GitHub: [@githubhandle](https://github.com/Hector096)
-  - Linkedin: [@linkedinhandle](https://www.linkedin.com/in/vishal-verma-9191b8126/)
+  - Linkedin: [@linkedinhandle](https://www.linkedin.com/in/hector096/)
 
 
 ## 🤝 Contributing

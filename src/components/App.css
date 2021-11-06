@@ -7,6 +7,15 @@
   color: gray;
 }
 
+li:not(:first-child)::before {
+  content: " | ";
+  color: gainsboro;
+}
+
+.li-button:hover {
+  color: red;
+}
+
 .link-active {
   color: black;
   text-decoration: none;
@@ -16,14 +25,15 @@
   color: black;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  display: block;
-  width: 100%;
+.book-container {
+  height: 60vh;
+  overflow-y: scroll;
 }
 
-.book-container {
-  height: 50vh;
-  overflow-y: scroll;
+.spinner {
+  position: absolute;
+  margin: auto;
+  right: 50%;
+  bottom: 50%;
+  font-size: 50%;
 }

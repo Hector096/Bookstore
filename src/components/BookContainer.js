@@ -32,28 +32,40 @@ export default function BookContainer() {
   return (
     <>
       {books.loading !== true ? (
-        <div className="book-container">
-          {books === undefined || books.length === 0 ? (
-            <h2 className="text-center fw-bold mt-5">No Books Found..</h2>
-          ) : (
-            books.books.map((item) => (
-              <Book data={item} key={item.id} />
-            ))
+        <>
+          <div className="book-container">
+            {books.books === undefined || books.books.length === 0 ? (
+              <h2 className="text-center fw-bold mt-5">No Books Found..</h2>
+            ) : (
+              books.books.map((item) => (
+                <Book data={item} key={item.id} />
+              ))
 
-          )}
-        </div>
-      ) : (<Spinner animation="grow" className="m-auto" size="lg" />)}
-      <hr />
-      <h2 className="ms-5 m-2 ps-2">Add Book</h2>
-      <Form className="d-lg-flex ms-5" onSubmit={addNewBook}>
-        <Col className="m-3"><Form.Control onChange={handleFormInput} value={value.title} type="text" placeholder="Book title" className="p-3 me-3" name="title" required /></Col>
-        <Col className="m-3"><Form.Control onChange={handleFormInput} value={value.category} type="text" placeholder="Category" className="p-3 me-3" name="category" required /></Col>
-        <Col className="m-auto">
-          <Button variant="primary" type="submit">
-            Add book
-          </Button>
-        </Col>
-      </Form>
+            )}
+          </div>
+          <hr className="container" />
+          <div className="container">
+            <h2 className="mt-2 fw-bold text-secondary fs-4">ADD NEW BOOK</h2>
+            <Form className="d-lg-flex mt-3" onSubmit={addNewBook}>
+              <Col className="me-3 col-6"><Form.Control onChange={handleFormInput} value={value.title} type="text" className="p-2" placeholder="Book title" name="title" required /></Col>
+              <Col className="me-3 col-4">
+                <Form.Select aria-label="Default select example" onChange={handleFormInput} className="p-2" placeholder="Category" type="text" name="category" required>
+                  <option value="" hidden>Category</option>
+                  <option value="Fiction" className="text-secondary">Fiction</option>
+                  <option value="Business" className="text-secondary">Business</option>
+                  <option value="Thriller" className="text-secondary">Thriller</option>
+                </Form.Select>
+              </Col>
+              <Col className="m-auto">
+                <Button type="submit" className="px-5 fw-bold text-light rounded-0">
+                  ADD BOOK
+                </Button>
+              </Col>
+            </Form>
+          </div>
+        </>
+      )
+        : (<Spinner animation="grow" className="spinner" size="lg" />)}
     </>
   );
 }
