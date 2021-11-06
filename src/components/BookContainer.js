@@ -50,7 +50,7 @@ export default function BookContainer() {
               <Col className="me-3 col-6"><Form.Control onChange={handleFormInput} value={value.title} type="text" className="p-2" placeholder="Book title" name="title" required /></Col>
               <Col className="me-3 col-4">
                 <Form.Select aria-label="Default select example" onChange={handleFormInput} className="p-2" placeholder="Category" type="text" name="category" required>
-                  <option>Category</option>
+                  <option hidden>Category</option>
                   <option value="Fiction" className="text-secondary">Fiction</option>
                   <option value="Business" className="text-secondary">Business</option>
                   <option value="Thriller" className="text-secondary">Thriller</option>
